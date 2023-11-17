@@ -110,7 +110,7 @@
     }
 } */
 
-void moveZeroes(int* nums, int numsSize) 
+/* void moveZeroes(int* nums, int numsSize) 
 {
     int k=0;//0的位置
     int j=0;//非零的位置
@@ -127,7 +127,7 @@ void moveZeroes(int* nums, int numsSize)
         if(j>k)
         {
             int tmp=nums[j];
-            for(int l=j;l>=k;l--)
+            for(int l=j;l>k;l--)
             {
                 nums[l]=nums[l-1];
             }
@@ -136,24 +136,28 @@ void moveZeroes(int* nums, int numsSize)
         k=0;
         j=0;
     }
-    int m=0;
-    for(int i=0;i<numsSize;i++)
+    int m=numsSize+1;
     {
-        if(nums[i]==0)
+        for(int h=0;h<numsSize;h++)
         {
-            m=i-1;
-            break;
+            if(nums[h]==0)
+            {
+                m=h;
+            }
         }
     }
-    int left=0;
-    int right=m;
-    while(left<right)
+    if(mnumsSize+1)
     {
+        int left=0;
+        int right=m-1;
+         while(left<right)
+        {
+         nums[left]=nums[left]^nums[right];
+         nums[right]=nums[left]^nums[right];
         nums[left]=nums[left]^nums[right];
-        nums[right]=nums[left]^nums[right];
-        nums[left]=nums[left]^nums[right];
-        left++;
-        right--;
+         left++;
+            right--;
+        }
     }
 }
 
@@ -164,7 +168,7 @@ int main()
     int nums[n];
     for(int i=0;i<n;i++)
     {
-        scanf("%d",&nums[i]);
+     scanf("%d",&nums[i]);
     }
     moveZeroes(nums,n);
     for(int i=0;i<n;i++)
@@ -172,5 +176,140 @@ int main()
         printf("%d ",nums[i]);
     }
     printf("\n");
+    return 0;
+} */
+
+/* #include <stdio.h>
+
+void moveZeroes(int* nums, int numsSize) {
+    int k = 0; // 0的位置
+    int j = 0; // 非零的位置
+
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] == 0) {
+            k = i;
+        } else {
+            j = i;
+        }
+
+        if (j > k) {
+            int tmp = nums[j];
+            for (int l = j; l > k; l--) {
+                nums[l] = nums[l - 1];
+            }
+            nums[k] = tmp;
+        }
+        k = 0;
+        j = 0;
+    }
+
+    
+
+    if (m ==1)
+     {
+        int left = 0;
+        int right = n - 1;
+        while (left < right) {
+            nums[left] = nums[left] ^ nums[right];
+            nums[right] = nums[left] ^ nums[right];
+            nums[left] = nums[left] ^ nums[right];
+            left++;
+            right--;
+        }
+    }
+}
+
+int main() {
+    int n = 0;
+    scanf("%d", &n);
+
+    int nums[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+    moveZeroes(nums, n);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", nums[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+ */
+
+#include <stdio.h>
+
+void moveZeroes(int* nums, int numsSize) {
+    int s=0;
+    for(int i=0;i<numsSize;i++)
+    {
+        if(nums[i]==0)
+        {
+            s=1;
+        }
+    }
+    if(s==1)
+    {
+    int k = 0; // 0的位置
+    int j = 0; // 非零的位置
+
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] == 0) {
+            k = i;
+        } else {
+            j = i;
+        }
+
+        if (j > k) {
+            int tmp = nums[j];
+            for (int l = j; l > k; l--) {
+                nums[l] = nums[l - 1];
+            }
+            nums[k] = tmp;
+        }
+        k = 0;
+        j = 0;
+    }
+
+    int m = numsSize + 1;
+
+    for (int h = 0; h < numsSize; h++) {
+        if (nums[h] == 0) {
+            m = h;
+        }
+    }
+
+    if (m != numsSize + 1) {
+        int left = 0;
+        int right = m - 1;
+        while (left < right) {
+            nums[left] = nums[left] ^ nums[right];
+            nums[right] = nums[left] ^ nums[right];
+            nums[left] = nums[left] ^ nums[right];
+            left++;
+            right--;
+        }
+    }
+    }
+}
+
+int main() {
+    int n = 0;
+    scanf("%d", &n);
+
+    int nums[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+    moveZeroes(nums, n);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", nums[i]);
+    }
+    printf("\n");
+
     return 0;
 }
