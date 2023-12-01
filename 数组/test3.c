@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 int lengthOfLongestSubstring(char* s) 
 {
@@ -6,20 +7,33 @@ int lengthOfLongestSubstring(char* s)
     int right=0;
     int max=0;
     int count=0;
-    int charcount[256]={0};
-    while(s[right]!='\0')
+    while (s[right]!='\0')
     {
-        if(charcount[s[right]]==0||charcount[s[right]]>left)
+        for(int i=left;i<right;i++)
         {
-            charcount[s[right]]=right+1;
-            max=max<right-left+1?right-left+1:max;
+            if(s[i]==s[right])
+            {
+                count=right-left;
+                if(count>max)
+                {
+                    max=count;
+                }
+                left++;
+                right=left;
+            }
         }
-        else
-        {
-            left=charcount[s[right]];
-            charcount[s[right]]=right+1;
-        }
+        right++;
     }
+    count = right - left;
+    if (count > max) 
+    {
+        max = count;
+    }
+    if(count==0)
+    {   
+        return strlen(s);
+    }
+    return max;
 }
 
 /* int lengthOfLongestSubstring(char* s) {
