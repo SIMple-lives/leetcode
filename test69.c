@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int mySqrt(int x) {
+   long long i=1;
+    while(i*i<=x){
+        i++;
+    }
+    return i-1;
+}
+
+int main()
+{
+    int x=0;
+    scanf("%d",&x);
+    int y=mySqrt(x);
+    printf("y = %d\n",y);   
+    return 0;
+}
