@@ -1,7 +1,31 @@
 #include<stdio.h>
 #include<stdbool.h>
+#include<string.h>
 
-int removeElement(int* nums, int numsSize, int val) 
+int main()
+{   
+    int c=99;
+    char a=c;
+    char s[4];
+    strcpy(s,&a);
+    printf("%c\n",s[0]);
+    int d=110;
+    char e=d;
+    strcat(s,&e);
+    printf("%c",s[1]);
+    return 0;
+}
+
+/* int main()
+{
+    char a[2];
+    int c=99;
+    strcpy(a,c);
+    printf("%c\n",a[0]);
+    return 0;
+} */
+
+/* int removeElement(int* nums, int numsSize, int val) 
 {
     /* bool add=false;
     int count=numsSize;
@@ -23,7 +47,7 @@ int removeElement(int* nums, int numsSize, int val)
         }
     }
     return count; */
-    int count = numsSize;
+    /* int count = numsSize;
     int writeIndex = 0;  // Use a separate index to write non-matching elements
 
     for (int i = 0; i < numsSize; i++) 
@@ -38,9 +62,9 @@ int removeElement(int* nums, int numsSize, int val)
         }
     }
 
-}
-
-int main()
+} */
+ 
+/* int main()
 {
     int numsSize=0;
     scanf("%d",&numsSize);
@@ -58,4 +82,4 @@ int main()
     }
     printf("\n");
     return 0;
-}
+} */

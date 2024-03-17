@@ -18,7 +18,6 @@ char* intToRoman(int num)
 {
     char* result = (char*)malloc(sizeof(char) * 100);
     int count = 0;
-
     while (num > 0) 
     {
         if (num >= M) 
@@ -93,8 +92,7 @@ char* intToRoman(int num)
             num -= I;
         }
     }
-
-    result[count] = '\0'; // Null-terminate the string
+    result[count] = '\0'; 
     return result;
 }
 

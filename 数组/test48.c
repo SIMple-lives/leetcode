@@ -25,6 +25,7 @@ void rotate(int** matrix, int matrixSize, int* matrixColSize)
 int main()
 {
     int n=0;
+    printf("\033[43;30m请输入数字:\033[0m");
     scanf("%d",&n);
     int** num = (int**)malloc(n * sizeof(int*));
     for (int i = 0; i < n; i++) 
@@ -45,7 +46,7 @@ int main()
     {
         for(int j=0;j<n;j++)
         {
-            printf("%-2d ",num[i][j]);
+            printf("\033[42;29m%-2d\033[0m ",num[i][j]);
         }
         printf("\n");
     }

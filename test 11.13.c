@@ -1,6 +1,20 @@
 #include<stdio.h>
 #include<string.h>
 
+int main()
+{
+    char num[10];
+    for(int i=0;i<0;i++)
+    {
+        scanf("%c",&num[i]);
+    }
+    for(int i=0;i<9;i++)
+    {
+        printf("%c ",num[i]);
+    }
+    return 0;
+}
+
 /* void init(char board[54][54],char a,int end,int start)
 {
     int k=0 ;

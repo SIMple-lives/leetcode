@@ -18,7 +18,7 @@ int main()
     int n=0;
     scanf("%d",&n);
     initboard(num,n);
-    printf("[");
+    printf(" [");
     for(int i=1;i<=n;i++)
     {
         printf("[");

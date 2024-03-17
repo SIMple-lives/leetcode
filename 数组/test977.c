@@ -42,10 +42,10 @@ int main()
         scanf("%d",&nums[i]);
     }
     int count=0;
-    sortedSquares(nums,numsSize,&count);
+    int *ans=sortedSquares(nums,numsSize,&count);
     for(int i=0;i<count;i++)
     {
-        printf("%d ",nums[i]);
+        printf("%d ",ans[i]);
     }
     printf("\n");
     return 0;

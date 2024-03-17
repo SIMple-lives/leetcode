@@ -3,6 +3,7 @@ using namespace std;
 #include <string>
 #include <vector>
 #include <queue>
+#include <climits>
 
 struct TreeNode {
     int val;
@@ -42,7 +43,35 @@ public:
 
 class Solution {
 public:
+        int maxDepth=INT_MIN;
+        int result;
+        void traversal(TreeNode*node,int depth)
+        {
+            if(node->left==NULL&&node->right==NULL)
+            {
+                if(depth>maxDepth)
+                {
+                    maxDepth=depth;
+                    result=node->val;
+                }
+                return ;
+            } 
+            if(node->left)
+            {
+                depth++;
+                traversal(node->left,depth);
+                depth--;
+            }  
+            if(node->right)
+            {
+                depth++;
+                traversal(node->right,depth);
+                depth--;
+            }
+            return ;
+        }
     int findBottomLeftValue(TreeNode* root) {
-        
+        traversal(root,0);
+        return result;      
     }
 };

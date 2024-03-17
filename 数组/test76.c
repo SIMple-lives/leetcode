@@ -94,8 +94,8 @@ char* minWindow(char* s, char* t)
                 start = left;
                 minlen = current;
             }
-            if (++map[s[left]] > 0) {   //统计窗口中的字母个数
-                tLen++;
+            if (++map[s[left]] > 0) {   //统计窗口中的字母个数,左边移动到不满足全部元素出现的时候退出循环.
+                tLen++;//所以当左边的元素加一大于0,，就说明左边的元素不满足全部元素出现
             }
             left++;     //左边移动1位
         }

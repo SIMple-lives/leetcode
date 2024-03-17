@@ -241,7 +241,8 @@ int main() {
 
 #include <stdio.h>
 
-void moveZeroes(int* nums, int numsSize) {
+void moveZeroes(int* nums, int numsSize) 
+{
     int s=0;
     for(int i=0;i<numsSize;i++)
     {
@@ -252,45 +253,51 @@ void moveZeroes(int* nums, int numsSize) {
     }
     if(s==1)
     {
-    int k = 0; // 0的位置
-    int j = 0; // 非零的位置
-
-    for (int i = 0; i < numsSize; i++) {
-        if (nums[i] == 0) {
-            k = i;
-        } else {
-            j = i;
+      int k=0;//0的位置
+    int j=0;//非零的位置
+    for(int i=0;i<numsSize;i++)
+    {
+        if(nums[i]==0)
+        {
+            k=i;
         }
-
-        if (j > k) {
-            int tmp = nums[j];
-            for (int l = j; l > k; l--) {
-                nums[l] = nums[l - 1];
+        else if(nums[i]!=0)
+        {
+            j=i;
+        }
+        if(j>k)
+        {
+            int tmp=nums[j];
+            for(int l=j;l>k;l--)
+            {
+                nums[l]=nums[l-1];
             }
-            nums[k] = tmp;
+            nums[k]=tmp;
         }
-        k = 0;
-        j = 0;
+        k=0;
+        j=0;
     }
-
-    int m = numsSize + 1;
-
-    for (int h = 0; h < numsSize; h++) {
-        if (nums[h] == 0) {
-            m = h;
+    }
+    int m=numsSize;
+    for(int i=0;i<numsSize;i++)
+    {
+        if(nums[i]==0)
+        {
+            m=i-1;
+            break;
         }
     }
-
-    if (m != numsSize + 1) {
-        int left = 0;
-        int right = m - 1;
-        while (left < right) {
-            nums[left] = nums[left] ^ nums[right];
-            nums[right] = nums[left] ^ nums[right];
-            nums[left] = nums[left] ^ nums[right];
-            left++;
-            right--;
-        }
+    int left=0;
+    int right=m;
+    if(m<numsSize)
+    {
+    while(left<right)
+    {
+        nums[left]=nums[left]^nums[right];
+        nums[right]=nums[left]^nums[right];
+        nums[left]=nums[left]^nums[right];
+        left++;
+        right--;
     }
     }
 }

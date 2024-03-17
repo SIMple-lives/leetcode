@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int mySqrt(int x) {
+long mySqrt(int x) {
     for(int i=1;i<=x/2;i++)
     {
         if((i*i)<=x&&((i+1)*(i+1)>x))

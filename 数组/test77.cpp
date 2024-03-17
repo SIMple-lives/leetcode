@@ -17,9 +17,9 @@ public:
         // 注意终止条件的选择，确保剩余元素个数足够构成一个组合
         for (int i = start; i <= n - (k - combination.size()) + 1; ++i) 
             {
-            combination.push_back(i); // 添加当前元素到组合中
-            backtrack(n, k, i + 1, combination, combinations); // 递归构造下一个元素
-            combination.pop_back(); // 回溯，撤销选择的当前元素
+                combination.push_back(i); // 添加当前元素到组合中
+                backtrack(n, k, i + 1, combination, combinations); // 递归构造下一个元素
+                combination.pop_back(); // 回溯，撤销选择的当前元素
             }
     }
 

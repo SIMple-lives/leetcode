@@ -32,7 +32,8 @@ void printlist(struct Node *head)
     }
 }
 
-struct ListNode* swapPairs1(struct ListNode* head){
+struct ListNode* swapPairs1(struct ListNode* head)
+{
     //使用双指针避免使用中间变量
     typedef struct Node ListNode;
     ListNode *fakehead = (ListNode *)malloc(sizeof(ListNode));

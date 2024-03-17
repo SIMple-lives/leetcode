@@ -15,29 +15,36 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
-        vector<vector<int>> ret;
-        for(int i=0;i<queries.size();i++)
-        {
-            vector<int> v= {-1,-1};
-            int query= queries[i];
-            TreeNode* node =root;
-            while(node)
+    void findClosest(TreeNode* root, int query, int& mini, int& maxi) {
+        TreeNode* node = root;
+        while (node) {
+            if (node->val == query) 
             {
-                if(node->val<=query)
-                {
-                    v[0]=node->val;
-                    node=node->right;
-                }
-                else
-                {
-                    v[1]=node->val;
-                    node=node->left;
-                }
+                mini = node->val;
+                maxi = node->val;
+                return;
+            } else if (node->val < query) {
+                mini = node->val;
+                node = node->right;
+            } else {
+                maxi = node->val;
+                node = node->left;
             }
-            ret.push_back(v);
-        }   
-        return ret;     
+        }
+    }
+
+    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
+        vector<vector<int>> result;
+        for (int i = 0; i < queries.size(); i++) {
+            int query = queries[i];
+            int mini = -1, maxi = -1;
+            findClosest(root, query, mini, maxi);
+            vector<int> v;
+            v.push_back(mini);
+            v.push_back(maxi);
+            result.push_back(v);
+        }
+        return result;
     }
 };
 
@@ -74,13 +81,14 @@ public:
 //             }
 //             else
 //             {
-//                 int index=0;
-//                 int j=0;
-//                 for(j=0;j<num.size();j++)
+//                 v[0]=-1;
+//                 v[1]=-1;
+//                 for(int j=0;j<num.size()-1;j++)
 //                 {
+//                     v[0]=num[j];
 //                     if(num[j]<queries[i]&&num[j+1]>queries[i])
 //                     {
-//                         index = j;
+//                         v[1]=num[j+1];
 //                         break;
 //                     }
 //                 }

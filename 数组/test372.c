@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <math.h>
 
-int mypow(int a,int b)
+int mypow(int a,int b)//先取模后进行计算
 {
-    a %=1337;
-    int ret=1;
+    a %=1337;//计算取模后的数字.
+    int ret=1;//每一个取模后相乘，1338*1338=（1337+1)*(1337+1)%1337=1;
     for(int i=0;i<b;i++)
     {
         ret *= a;
         ret %= 1337;
     }
-    return ret;
+    return ret;//最后返回一次计算后的取模值
 }
 
 int superPow(int a,int *b,int bSize)
@@ -22,7 +22,7 @@ int superPow(int a,int *b,int bSize)
     int sum=1;
     for(int i=0;i<bSize;i++)
     {
-        sum = mypow(sum,10);
+        sum = mypow(sum,10);//数组b用来表示一个整数，需要自乘10,所以需要每一次乘10。
         sum *=mypow(a,b[i]);
         sum  %= 1337;
     }
