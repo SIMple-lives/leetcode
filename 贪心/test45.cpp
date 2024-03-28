@@ -20,6 +20,7 @@ public:
                 return area;
             }   
         }
+        return area;
     }
 };
 
