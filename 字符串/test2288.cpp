@@ -72,7 +72,7 @@ int main()
 
     Solution solution;
     std::string result = solution.discountPrices(sentence, discount);
-
+    
     std::cout << result << std::endl;
     return 0;
 }

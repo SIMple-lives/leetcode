@@ -15,7 +15,7 @@ class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
         stack<TreeNode *> stack;
-        while (root != nullptr || stack.size() > 0) 
+        while (root != nullptr || stack.size() > 0) //当root不为空或者栈不为空时
         {
             while (root != nullptr) 
             {
