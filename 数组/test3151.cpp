@@ -9,7 +9,7 @@ public:
             return false;
         }
         int flag = nums[0]%2;
-        for(int i = 1; i < nums.size(); i++)
+        for(int i = 1; i < nums.size(); i++) 
         {
             flag = 1 - flag;
             if(nums[i]%2 != flag)
@@ -29,4 +29,4 @@ int main()
     Solution solution;
     std::cout << "Is the array special? " << (solution.isArraySpecial(nums) ? "Yes" : "No") << std::endl;
     return 0;
-}
+} 
